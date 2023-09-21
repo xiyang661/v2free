@@ -13,7 +13,7 @@ def checkin(email=os.environ.get('EMAIL'), password=os.environ.get('PASSWORD'),
     email = email.split('@')
     email = email[0] + '%40' + email[1]
     session = requests.session()
-    session.get(base_url, verify=False)
+    #session.get(base_url, verify=False)
     login_url = base_url + '/auth/login'
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; WOW64) '
@@ -37,7 +37,7 @@ def checkin(email=os.environ.get('EMAIL'), password=os.environ.get('PASSWORD'),
     return response['msg']
 
 
-result = checkin()
+#result = checkin()
 if SCKEY != '':
     sendurl = 'https://sctapi.ftqq.com/' + SCKEY + '.send?title=v2free机场签到&desp=' + result
     r = requests.get(url=sendurl)
